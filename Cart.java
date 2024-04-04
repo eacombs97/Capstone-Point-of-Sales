@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @author kairagaines
  */
 public class Cart {
+ //switch this to products rather than orderitem
  private ArrayList<OrderItem> orderItem;
 
  public void addToCart(OrderItem item){
