@@ -20,7 +20,7 @@ public class Order {
     private float total;
     
     public Order (int orderID, int userID, int discountID, int shippingDetailsID,
-            int taxID, int paymentID, int guestID, int totalQuantityID, float total){
+            int taxID, int paymentID, int totalQuantityID, float total){
         
         this.orderID = orderID;
         this.userID = userID;
@@ -28,7 +28,6 @@ public class Order {
         this.shippingDetailsID = shippingDetailsID;
         this.taxID = taxID;
         this.paymentID = paymentID;
-        this.guestID = guestID;
         this.totalQuantityID = totalQuantityID;
         this.total = total;
     }
@@ -101,19 +100,7 @@ public class Order {
         this.paymentID = paymentID;
     }
 
-    /**
-     * @return the guestID
-     */
-    public int getGuestID() {
-        return guestID;
-    }
 
-    /**
-     * @param guestID the guestID to set
-     */
-    public void setGuestID(int guestID) {
-        this.guestID = guestID;
-    }
 
     /**
      * @return the totalQuantityID
