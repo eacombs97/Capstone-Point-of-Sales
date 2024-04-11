@@ -10,5 +10,26 @@ public class Main {
         Employee employee2 = new Employee(2, "Emily", "Combs", "HkS9z@forsythtech.edu", "555-555-5555", "Programmer", "Information Technology");
         Employee employee3 = new Employee(3, "Kaira", "Gaines", "HkS9z@forsythtech.edu", "555-555-5555", "Programmer", "Information Technology");
         Employee employee4 = new Employee(4, "Marvin", "Araya", "HkS9z@forsythtech.edu", "555-555-5555", "Programmer", "Information Technology");
+
+        Product product1 = new Product("12345", "Laptop", 1000.00, "Laptop with 8GB RAM");
+        Product product2 = new Product("23456", "Desktop", 2000.00, "Desktop with 16GB RAM");
+        Product product3 = new Product("34567", "Tablet", 500.00, "Tablet with 4GB RAM");
+
+        //productList.add(product1);
+        //productList.add(product2);
+        //productList.add(product3);
+
+        //customer1.addToCart(productList.get(0));
+        //customer1.addToCart(productList.get(1));
+        //customer1.addToCart(productList.get(2));
+
+        customer1.addToCart(new Product("23456", "Desktop", 2000.00, "Desktop with 16GB RAM"));
+        customer1.addToCart(new Product("34567", "Tablet", 500.00, "Tablet with 4GB RAM"));
+
+        //customer1.viewCart();
+
+        //customer1.checkout();
+
+        //customer1.placeOrder(productList);
     }
 }
