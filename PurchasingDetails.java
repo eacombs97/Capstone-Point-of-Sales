@@ -157,20 +157,80 @@ public class PurchasingDetails {
 
     // Method to calculate total cost
     public double calculateTotalCost() {
-        // TODO: Add logic to calculate total cost based on the orderTotal
+        // TODO: Add logic to calculate total cost based on **Kaira**
         return orderTotal;
     }
 
     // Method to validate credit card details
     public boolean validateCardDetails() {
-        // TODO: Add logic to validate card details (e.g., card number, expiry date, CVV)
-        return true; // Placeholder return value
+        // Validate card number
+        if (isValidCardNumber(cardNumber)) {
+            return false;
+        }
+
+        // Validate card expiry date
+        if (isValidExpiryDate(cardExpiryDate)) {
+            return false;
+        }
+
+        // Validate CVV
+        if (isValidCVV(cvv)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    // Helper method to validate card number
+    private boolean isValidCardNumber(String cardNumber) {
+        // Logic to validate card number
+        String cardNumberRegex = "^(\\d{4}-){3}\\d{4}$";
+
+        // Check if address matches the format
+        if (!address.matches(cardNumberRegex)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Helper method to validate card expiry date
+    private boolean isValidExpiryDate(String expiryDate) {
+        // Logic to validate expiry date
+        String expiryDateRegex = "^(0[1-9]|1[0-2])/[0-9]{2}$";
+
+        // Check if address matches the format
+        if (!address.matches(expiryDateRegex)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Helper method to validate CVV
+    private boolean isValidCVV(String cvv) {
+        // Logic to validate CVV
+        String cvvRegex = "^[0-9]{3}$";
+
+        // Check if address matches the format
+        if (!address.matches(cvvRegex)) {
+            return true;
+        }
+
+        return false;
     }
 
     // Method to format address
-    public String formatAddress() {
-        // TODO: Add logic to format address
-        return address; // Placeholder return value
+    public boolean formatAddress() {
+        // Regular expression for address format
+        String addressRegex = "^[a-zA-Z0-9\\s]*$";
+
+        // Check if address matches the format
+        if (!address.matches(addressRegex)) {
+            return false;
+        }
+
+        return true;
     }
 
     // Method to update order status
@@ -185,29 +245,33 @@ public class PurchasingDetails {
 
     // Method to track shipment
     public String trackShipment() {
-        // TODO: Add logic to track shipment using shipping tracking number
+        // TODO: Add logic to track shipments from the **Shipping team**
         return "Shipment tracking information"; // Placeholder return value
     }
 
     // Method to verify payment
-    public boolean verifyPayment() {
-        // TODO: Add logic to verify payment status
-        return true; // Placeholder return value
-    }
+    public String verifyPayment() {
+        // Validate card number
+        if (isValidCardNumber(cardNumber)) {
+            return "Payment failed";
+        }
 
-    // Method to add additional notes
-    public void addAdditionalNotes(String notes) {
-        // TODO: Add logic to add additional notes
+        // Validate card expiry date
+        if (isValidExpiryDate(cardExpiryDate)) {
+            return "Payment failed";
+        }
+
+        // Validate CVV
+        if (isValidCVV(cvv)) {
+            return "Payment failed";
+        }
+
+        return "Payment successful";
     }
 
     // Method to retrieve order details
     public String retrieveOrderDetails() {
-        // TODO: Add logic to retrieve detailed order information
-        return "Order details"; // Placeholder return value
-    }
-
-    // Method to cancel order
-    public void cancelOrder() {
-        this.orderStatus = "Cancelled";
+        // TODO: Add logic to retrieve detailed order information from **Kaira**
+        return "Order details...";
     }
 }

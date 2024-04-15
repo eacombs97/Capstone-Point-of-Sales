@@ -12,8 +12,8 @@ public class Customer {
         private String address;
         private String password;
 
-        private List<Product> shoppingCart; // List to store products in the shopping cart
-        private List<Order> orders; // List to store customer orders
+        //private List<Product> shoppingCart; // List to store products in the shopping cart
+        //private List<Order> orders; // List to store customer orders
 
         // Constructor
         public Customer(int customerId, String firstName, String lastName, String email, String phone, String address) {
@@ -23,7 +23,7 @@ public class Customer {
             this.email = email;
             this.phone = phone;
             this.address = address;
-            this.orders = new ArrayList<>(); // Initialize the list of customer orders
+            //this.orders = new ArrayList<>(); // Initialize the list of customer orders
         }
 
         // Getters and setters
@@ -92,7 +92,7 @@ public class Customer {
         // Method to register a new customer
         public void register() {
             // TODO: Replace with OAuth2.0 service to validate email and password
-            // TODO: Ensure information is updated in the database or other persistence operations
+            // TODO: Ensure information is updated in the database from the **Database Team**
             System.out.println("Customer registered successfully!");
         }
 
@@ -116,7 +116,7 @@ public class Customer {
                 System.out.println("Invalid password format. Please provide a strong password.");
                 return;
             }
-            // TODO: Ensure information is updated in the database or other persistence operations
+            // TODO: Ensure information is updated in the database from the **Database Team**
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
@@ -174,7 +174,7 @@ public class Customer {
             // Update other attributes...
             System.out.println("Password changed successfully!");
         }
-
+/**
         // Method to add a product to the shopping cart
         public void addToCart(Product product) {
             shoppingCart.add(product);
@@ -298,4 +298,5 @@ public class Customer {
                 System.out.println("Order with ID " + orderId + " not found. Unable to cancel.");
             }
         }
+ **/
 }
