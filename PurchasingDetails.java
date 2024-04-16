@@ -157,7 +157,7 @@ public class PurchasingDetails {
 
     // Method to calculate total cost
     public double calculateTotalCost() {
-        // TODO: Add logic to calculate total cost based on **Kaira**
+        // TODO: Add logic to calculate total cost based on **Database Team**
         return orderTotal;
     }
 
@@ -243,12 +243,6 @@ public class PurchasingDetails {
         return "Order has been confirmed"; // Placeholder return value
     }
 
-    // Method to track shipment
-    public String trackShipment() {
-        // TODO: Add logic to track shipments from the **Shipping team**
-        return "Shipment tracking information"; // Placeholder return value
-    }
-
     // Method to verify payment
     public String verifyPayment() {
         // Validate card number
@@ -271,7 +265,7 @@ public class PurchasingDetails {
 
     // Method to retrieve order details
     public String retrieveOrderDetails() {
-        // TODO: Add logic to retrieve detailed order information from **Kaira**
+        // TODO: Add logic to retrieve detailed order information from **Database Team**
         return "Order details...";
     }
 }

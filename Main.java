@@ -25,8 +25,8 @@ public class Main {
 
         //customer1.removeFromCart(productList.get(0));
 
-        customer1.addToCart(new Product("23456", "Desktop", 2000.00, "Desktop with 16GB RAM"));
-        customer1.addToCart(new Product("34567", "Tablet", 500.00, "Tablet with 4GB RAM"));
+        //customer1.addToCart(new Product("23456", "Desktop", 2000.00, "Desktop with 16GB RAM"));
+        //customer1.addToCart(new Product("34567", "Tablet", 500.00, "Tablet with 4GB RAM"));
 
         //customer1.viewCart();
 
