@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Product {
-    private static List<Product> productList = new ArrayList<>();
+    private static List<Product> productList;
     private String productId;
     private String name;
     private double price;

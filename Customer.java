@@ -12,9 +12,6 @@ public class Customer {
         private String address;
         private String password;
 
-        //private List<Product> shoppingCart; // List to store products in the shopping cart
-        //private List<Order> orders; // List to store customer orders
-
         // Constructor
         public Customer(int customerId, String firstName, String lastName, String email, String phone, String address) {
             this.customerId = customerId;
@@ -23,7 +20,6 @@ public class Customer {
             this.email = email;
             this.phone = phone;
             this.address = address;
-            //this.orders = new ArrayList<>(); // Initialize the list of customer orders
         }
 
         // Getters and setters
@@ -89,13 +85,6 @@ public class Customer {
             return UUID.randomUUID().toString();
         }
 
-        // Method to register a new customer
-        public void register() {
-            // TODO: Replace with OAuth2.0 service to validate email and password
-            // TODO: Ensure information is updated in the database from the **Database Team**
-            System.out.println("Customer registered successfully!");
-        }
-
         // Method to update customer profile
         public void updateProfile(String firstName, String lastName, String email, String password, String address) {
             // TODO: Replace with OAuth2.0 service to validate email and password
@@ -124,11 +113,13 @@ public class Customer {
             this.address = address;
             System.out.println("Customer profile updated successfully!");
         }
+
         // Method to validate email format
         private boolean isValidEmail(String email) {
             // Simple email validation format, thanks Google
             return email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
         }
+
         // Method to validate password strength
         private boolean isValidPassword(String password) {
             // Check if password length is at least 8 characters
@@ -174,7 +165,7 @@ public class Customer {
             // Update other attributes...
             System.out.println("Password changed successfully!");
         }
-/**
+    /**private static List<shoppingCart> product;
         // Method to add a product to the shopping cart
         public void addToCart(Product product) {
             shoppingCart.add(product);
@@ -297,6 +288,5 @@ public class Customer {
             } else {
                 System.out.println("Order with ID " + orderId + " not found. Unable to cancel.");
             }
-        }
- **/
+        }**/
 }
