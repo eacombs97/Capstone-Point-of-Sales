@@ -1,0 +1,124 @@
+private static List<shoppingCart> product;
+        // Method to add a product to the shopping cart
+        public void addToCart(Product product) {
+            shoppingCart.add(product);
+            System.out.println(product.getName() + " added to the shopping cart.");
+        }
+
+        // Method to remove a product from the shopping cart
+        public void removeFromCart(Product product) {
+            if (shoppingCart.contains(product)) {
+                shoppingCart.remove(product);
+                System.out.println(product.getName() + " removed from the shopping cart.");
+            } else {
+                System.out.println(product.getName() + " is not in the shopping cart.");
+            }
+        }
+
+        // Method to view the contents of the shopping cart
+        public void viewCart() {
+            if (shoppingCart.isEmpty()) {
+                System.out.println("Your shopping cart is empty.");
+            } else {
+                System.out.println("Shopping Cart Contents:");
+                for (Product product : shoppingCart) {
+                    System.out.println("- " + product.getName() + " ($" + product.getPrice() + ")");
+                }
+            }
+        }
+
+        // Method to simulate the checkout process
+        public void checkout() {
+            if (shoppingCart.isEmpty()) {
+                System.out.println("Your shopping cart is empty. Please add items before checkout.");
+                return;
+            }
+
+            // Perform checkout process (e.g., calculate total, process payment, update inventory, etc.)
+            double totalAmount = calculateTotal();
+
+            // Display checkout summary
+            System.out.println("Checkout Summary:");
+            System.out.println("Total Amount: $" + totalAmount);
+            System.out.println("Shipping Address: " + address);
+
+            // Clear the shopping cart after checkout
+            shoppingCart.clear();
+
+            System.out.println("Thank you for your purchase! Your order has been placed.");
+        }
+
+        // Method to calculate the total amount of the items in the shopping cart
+        private double calculateTotal() {
+            double totalAmount = 0;
+            for (Product product : shoppingCart) {
+                totalAmount += product.getPrice();
+            }
+            return totalAmount;
+        }
+
+        // Method to place an order
+        public void placeOrder(List<Product> products) {
+            // Create a new order
+            Order order = new Order(this, products);
+            // Add the order to the list of customer's orders
+            orders.add(order);
+            System.out.println("Order placed successfully!");
+        }
+
+        // Method to get the list of orders
+        public List<Order> getOrders() {
+            return orders;
+        }
+
+        // Method to view orders
+        public void viewOrders() {
+            if (orders.isEmpty()) {
+                System.out.println("No orders available for this customer.");
+            } else {
+                System.out.println("Orders for Customer: " + firstName + " " + lastName);
+                for (Order order : orders) {
+                    System.out.println("Order ID: " + order.getOrderId());
+                    System.out.println("Order Date: " + order.getOrderDate());
+                }
+            }
+        }
+
+        // Method to view order details
+        public void viewOrderDetails(String orderId) {
+            Order order = findOrderById(orderId);
+            if (order != null) {
+                System.out.println("Order ID: " + order.getOrderId());
+                System.out.println("Order Date: " + order.getOrderDate());
+                System.out.println("Products:");
+                for (Product product : order.getProducts()) {
+                    System.out.println("- " + product.getName() + " ($" + product.getPrice() + ")");
+                }
+                System.out.println("Total Amount: $" + order.getTotalAmount());
+                // Add other order details as needed
+            } else {
+                System.out.println("Order with ID " + orderId + " not found.");
+            }
+        }
+
+        // Method to find an order by ID
+        private Order findOrderById(String orderId) {
+            for (Order order : orders) {
+                if (order.getOrderId().equals(orderId)) {
+                    return order;
+                }
+            }
+            return null; // Order not found
+        }
+
+        // Method to cancel an order
+        public void cancelOrder(String orderId) {
+            Order order = findOrderById(orderId);
+            if (order != null) {
+                // Remove the order from the list of customer's orders
+                orders.remove(order);
+                System.out.println("Order with ID " + orderId + " has been canceled.");
+            } else {
+                System.out.println("Order with ID " + orderId + " not found. Unable to cancel.");
+            }
+        }
