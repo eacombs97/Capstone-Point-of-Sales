@@ -10,48 +10,50 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State private var isLoggedIn: Bool = false // You can replace this with your own logic for authentication
+    @State private var isLoggedIn: Bool = false //authentication stuff for here
     
     var body: some View {
-        VStack {
-            Image(systemName: "person.circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-                .padding(.bottom, 30)
-            
-            TextField("Username", text: $username)
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(8)
-                .padding(.bottom, 20)
-            
-            SecureField("Password", text: $password)
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(8)
-                .padding(.bottom, 20)
-            
-            Button(action: {
-                // Here you can implement your authentication logic
-                // For demonstration, I'm just checking if both fields are filled
-                if !username.isEmpty && !password.isEmpty {
-                    isLoggedIn = true
-                }
-            }) {
-                Text("Login")
-                    .foregroundColor(.white)
+        BaseView {
+            VStack {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .padding(.bottom, 30)
+                    .foregroundColor(Color("Light Gold"))
+                
+                TextField("Username", text: $username)
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(Color(UIColor.systemGray6))
                     .cornerRadius(8)
+                    .padding(.bottom, 20)
+                
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(8)
+                    .padding(.bottom, 20)
+                
+                Button(action: {
+                    // implement your authentication logic
+                    
+                    if !username.isEmpty && !password.isEmpty {
+                        isLoggedIn = true
+                    }
+                }) {
+                    Text("Login")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color("Dark Gold"))
+                        .cornerRadius(8)
+                }
             }
             .padding(.horizontal, 20)
-            
-            Spacer()
+            .background(Color("Dark Green"))
         }
         .padding()
         .navigationTitle("Login")
+        .background(Color("Dark Green"))
         .alert(isPresented: $isLoggedIn) {
             Alert(title: Text("Success"), message: Text("You are logged in!"), dismissButton: .default(Text("OK")))
         }

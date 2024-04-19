@@ -14,6 +14,7 @@ struct CartButton: View {
         ZStack(alignment: .topTrailing){
             Image(systemName: "cart")
                 .padding(.top, 5)
+                .foregroundColor((Color(hex: "ad8d49")))
             
             if numberOfProducts > 0 {
                 Text("\(numberOfProducts)")

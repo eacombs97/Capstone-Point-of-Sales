@@ -12,31 +12,30 @@ struct CartView: View {
     @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
-        ScrollView {
-            if cartManager.products.count > 0 {
-                ForEach(cartManager.products, id: \.id){
-                    product in ProductRow(product: product)
-                }
-                
-                
-                HStack {
-                    Text("Your cart total is")
-                    Spacer()
-                    if let formattedTotal = formatPrice(cartManager.total) {
-                        Text(formattedTotal)
-                            .bold()
+        BaseView{
+            ScrollView {
+                if cartManager.products.count > 0 {
+                    ForEach(cartManager.products, id: \.id){
+                        product in ProductRow(product: product)
                     }
+                    
+                    
+                    HStack {
+                        Text("Your cart total is")
+                        Spacer()
+                        if let formattedTotal = formatPrice(cartManager.total) {
+                            Text(formattedTotal)
+                                .bold()
+                        }
+                    }
+                }else {
+                    Text("Your cart is empty.")
                 }
-            }else {
-                Text("Your cart is empty.")
             }
-            
-            
+            .background(Color("Dark Green"))
         }
         .navigationTitle(Text("My Cart"))
         .padding(.top)
-        .background(Color(hex: "053426"))
-        
     }
         
     // Function to format price with two decimal places
@@ -47,9 +46,6 @@ struct CartView: View {
             return formatter.string(from: NSNumber(value: price))
     }
 }
-
-    
-    
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
