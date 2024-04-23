@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 // Customer class
 public class Customer {
-        private int customerId;
+        private String customerId;
         private String firstName;
         private String lastName;
         private String email;
@@ -14,8 +14,8 @@ public class Customer {
         private String password;
 
         // Constructor
-        public Customer(int customerId, String firstName, String lastName, String email, String phone, String address) {
-            this.customerId = customerId;
+        public Customer(String firstName, String lastName, String email, String phone, String address) {
+            this.customerId = UUID.randomUUID().toString();
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
@@ -24,12 +24,8 @@ public class Customer {
         }
 
         // Getters and setters
-        public int getCustomerId() {
+        public String getCustomerId() {
             return customerId;
-        }
-
-        public void setCustomerId(int customerId) {
-            this.customerId = customerId;
         }
 
         public String getFirstName() {
@@ -76,14 +72,8 @@ public class Customer {
             return password;
         }
 
-        public void setPassword(String address) {
+        public void setPassword(String password) {
             this.password = password;
-        }
-
-        // Method to generate a unique customer ID
-        private String generateCustomerId() {
-            // Generate a random UUID
-            return UUID.randomUUID().toString();
         }
 
         // Method to update customer profile
@@ -123,28 +113,38 @@ public class Customer {
 
         // Method to validate password strength
         private boolean isValidPassword(String password) {
+            // Check if password is null
+            if (password == null) {
+                System.out.println("Password cannot be null.");
+                return false;
+            }
             // Check if password length is at least 8 characters
             if (password.length() < 8) {
+                System.out.println("Password must be at least 8 characters long.");
                 return false;
             }
 
             // Check if password contains at least one uppercase letter
             if (!password.matches(".*[A-Z].*")) {
+                System.out.println("Password must contain at least one uppercase letter.");
                 return false;
             }
 
             // Check if password contains at least one lowercase letter
             if (!password.matches(".*[a-z].*")) {
+                System.out.println("Password must contain at least one lowercase letter.");
                 return false;
             }
 
             // Check if password contains at least one digit
             if (!password.matches(".*\\d.*")) {
+                System.out.println("Password must contain at least one digit.");
                 return false;
             }
 
             // Check if password contains at least one special character
             if (!password.matches(".*[!@#$%^&*()-_=+\\\\|\\[{\\]};:'\",<.>/?].*")) {
+                System.out.println("Password must contain at least one special character.");
                 return false;
             }
 
@@ -153,17 +153,14 @@ public class Customer {
 
         // Method to change customer password
         public void forgotPassword(String newPassword) {
-            // TODO: Perform validation checks on the new password (e.g., strength requirements)
             // Validate password
-            boolean isPasswordValid = isValidPassword(password);
-            if (!isPasswordValid) {
-                System.out.println("Invalid password format. Please provide a strong password.");
+            if (isValidPassword(newPassword)) {
+                System.out.println("Password changed successfully!");
+                this.password = newPassword;
                 return;
             }
 
             // TODO: Update the customer's password in the database or perform other persistence operations
-            this.password = newPassword;
-            // Update other attributes...
-            System.out.println("Password changed successfully!");
+            System.out.println("Invalid password format. Please provide a strong password.");
         }
 }

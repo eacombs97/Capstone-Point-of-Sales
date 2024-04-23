@@ -1,5 +1,7 @@
+import java.util.UUID;
+
 public class Employee {
-    private int employeeId;
+    private String employeeId;
     private String firstName;
     private String lastName;
     private String email;
@@ -9,8 +11,8 @@ public class Employee {
     private String department;  // I don't know if this is necessary, we're all in the same department lol
 
     // Constructor
-    public Employee(int employeeId, String firstName, String lastName, String email, String phone, String role, String department) {
-        this.employeeId = employeeId;
+    public Employee(String firstName, String lastName, String email, String phone, String role, String department) {
+        this.employeeId = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -20,12 +22,8 @@ public class Employee {
     }
 
     // Getters and setters
-    public int getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
-    }
-
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
@@ -117,28 +115,38 @@ public class Employee {
     }
     // Method to validate password strength
     private boolean isValidPassword(String password) {
+        // Check if password is null
+        if (password == null) {
+            System.out.println("Password cannot be null.");
+            return false;
+        }
         // Check if password length is at least 8 characters
         if (password.length() < 8) {
+            System.out.println("Password must be at least 8 characters long.");
             return false;
         }
 
         // Check if password contains at least one uppercase letter
         if (!password.matches(".*[A-Z].*")) {
+            System.out.println("Password must contain at least one uppercase letter.");
             return false;
         }
 
         // Check if password contains at least one lowercase letter
         if (!password.matches(".*[a-z].*")) {
+            System.out.println("Password must contain at least one lowercase letter.");
             return false;
         }
 
         // Check if password contains at least one digit
         if (!password.matches(".*\\d.*")) {
+            System.out.println("Password must contain at least one digit.");
             return false;
         }
 
         // Check if password contains at least one special character
         if (!password.matches(".*[!@#$%^&*()-_=+\\\\|\\[{\\]};:'\",<.>/?].*")) {
+            System.out.println("Password must contain at least one special character.");
             return false;
         }
 
@@ -147,17 +155,14 @@ public class Employee {
 
     // Method to change employee password
     public void forgotPassword(String newPassword) {
-        // TODO: TODO: Replace with OAuth2.0 service to validate email and password
         // Validate password
-        boolean isPasswordValid = isValidPassword(password);
-        if (!isPasswordValid) {
-            System.out.println("Invalid password format. Please provide a strong password.");
+        if (isValidPassword(newPassword)) {
+            System.out.println("Password changed successfully!");
+            this.password = newPassword;
             return;
         }
 
-        // TODO: Ensure information is updated in the database or other persistence operations
-        this.password = newPassword;
-        // Update other attributes...
-        System.out.println("Password changed successfully!");
+        // TODO: Update the customer's password in the database or perform other persistence operations
+        System.out.println("Invalid password format. Please provide a strong password.");
     }
 }
