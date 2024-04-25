@@ -7,7 +7,7 @@ import com.microsoft.aad.msal4j.*;
  * @version 1.0
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Customer customer1 = new Customer("John", "Doe", "HkS9z@example.com", "555-555-5555", "123 Main St");
         Employee employee1 = new Employee("Skyler", "Ireland", "irelands3139@forsythtech.edu", "336-276-4999", "Programmer", "Information Technology");
         Employee employee2 = new Employee("Emily", "Combs", "HkS9z@forsythtech.edu", "555-555-5555", "Programmer", "Information Technology");
@@ -40,6 +40,16 @@ public class Main {
         System.out.println("Phone: " + customer1.getPhone());
         System.out.println("Address: " + customer1.getAddress());
         System.out.println();
+
+        customer1.setCardNumber("808090706072");
+        customer1.setCardNumber(Encryption.encrypt(customer1.getCardNumber())); // Encryption that sets the card number to an encrypted value
+        System.out.println("Encrypted Card Number: " + customer1.getCardNumber()); // Prints the encrypted card number
+        customer1.setCardNumber(Encryption.decrypt(customer1.getCardNumber())); // Decryption that sets the card number to a decrypted value
+        System.out.println("Decrypted Card Number: " + customer1.getCardNumber()); // Prints the decrypted card number
+        customer1.setCardExpiryDate("09/25");
+        System.out.println("Expiry Date: " + customer1.getCardExpiryDate());
+        customer1.setCvv("123");
+        System.out.println("CVV: " + customer1.getCvv());
         System.out.println();
 
         employee1.setEmail("irelands5050@forsythtech.edu");
