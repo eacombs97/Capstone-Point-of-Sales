@@ -40,6 +40,7 @@ public class Main {
         System.out.println("Phone: " + customer1.getPhone());
         System.out.println("Address: " + customer1.getAddress());
         System.out.println();
+        System.out.println();
 
         employee1.setEmail("irelands5050@forsythtech.edu");
         employee1.setPassword("password123");
