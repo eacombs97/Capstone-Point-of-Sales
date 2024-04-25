@@ -52,7 +52,6 @@ public class Main {
         System.out.println("Encrypted Expiry Date: " + customer1.getCardExpiryDate()); // Prints the encrypted expiry date
         customer1.setCardExpiryDate(Encryption.decrypt(customer1.getCardExpiryDate())); // Decryption that sets the expiry date to a decrypted value
         System.out.println("Decrypted Expiry Date: " + customer1.getCardExpiryDate()); // Prints the decrypted expiry date
-        customer1.setCvv("1234");
         customer1.setCvv("123");
         customer1.setCvv(Encryption.encrypt(customer1.getCvv())); // Encryption that sets the CVV to an encrypted value
         System.out.println("Encrypted CVV: " + customer1.getCvv()); // Prints the encrypted CVV
