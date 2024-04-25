@@ -41,15 +41,23 @@ public class Main {
         System.out.println("Address: " + customer1.getAddress());
         System.out.println();
 
+        // This block of code demonstrates the use of encryption and decryption methods
         customer1.setCardNumber("808090706072");
         customer1.setCardNumber(Encryption.encrypt(customer1.getCardNumber())); // Encryption that sets the card number to an encrypted value
         System.out.println("Encrypted Card Number: " + customer1.getCardNumber()); // Prints the encrypted card number
         customer1.setCardNumber(Encryption.decrypt(customer1.getCardNumber())); // Decryption that sets the card number to a decrypted value
         System.out.println("Decrypted Card Number: " + customer1.getCardNumber()); // Prints the decrypted card number
         customer1.setCardExpiryDate("09/25");
-        System.out.println("Expiry Date: " + customer1.getCardExpiryDate());
+        customer1.setCardExpiryDate(Encryption.encrypt(customer1.getCardExpiryDate())); // Encryption that sets the expiry date to an encrypted value
+        System.out.println("Encrypted Expiry Date: " + customer1.getCardExpiryDate()); // Prints the encrypted expiry date
+        customer1.setCardExpiryDate(Encryption.decrypt(customer1.getCardExpiryDate())); // Decryption that sets the expiry date to a decrypted value
+        System.out.println("Decrypted Expiry Date: " + customer1.getCardExpiryDate()); // Prints the decrypted expiry date
+        customer1.setCvv("1234");
         customer1.setCvv("123");
-        System.out.println("CVV: " + customer1.getCvv());
+        customer1.setCvv(Encryption.encrypt(customer1.getCvv())); // Encryption that sets the CVV to an encrypted value
+        System.out.println("Encrypted CVV: " + customer1.getCvv()); // Prints the encrypted CVV
+        customer1.setCvv(Encryption.decrypt(customer1.getCvv())); // Decryption that sets the CVV to a decrypted value
+        System.out.println("Decrypted CVV: " + customer1.getCvv()); // Prints the decrypted CVV
         System.out.println();
 
         employee1.setEmail("irelands5050@forsythtech.edu");
