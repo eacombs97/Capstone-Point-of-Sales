@@ -1,0 +1,77 @@
+import Foundation
+import CommonCrypto
+
+class Encryption {
+    private static let AES_KEY = "1234567890123456" // 16, 24, or 32 bytes
+
+    enum CryptoError: Error {
+        case encryptionFailed
+        case decryptionFailed
+    }
+
+    static func encrypt(_ plaintext: String) throws -> String {
+        guard let keyData = AES_KEY.data(using: .utf8) else {
+            throw CryptoError.encryptionFailed
+        }
+        let inputData = plaintext.data(using: .utf8)!
+        let bufferSize: Int = inputData.count + kCCBlockSizeAES128
+        var buffer = [UInt8](repeating: 0, count: bufferSize)
+        var numBytesEncrypted: Int = 0
+
+        let cryptStatus = keyData.withUnsafeBytes { keyBytes in
+            inputData.withUnsafeBytes { dataBytes in
+                CCCrypt(
+                    CCOperation(kCCEncrypt),
+                    CCAlgorithm(kCCAlgorithmAES),
+                    CCOptions(kCCOptionPKCS7Padding),
+                    keyBytes.baseAddress, keyData.count,
+                    nil,
+                    dataBytes.baseAddress, inputData.count,
+                    &buffer,
+                    bufferSize,
+                    &numBytesEncrypted
+                )
+            }
+        }
+
+        guard cryptStatus == kCCSuccess else {
+            throw CryptoError.encryptionFailed
+        }
+
+        let encryptedData = Data(bytes: buffer, count: numBytesEncrypted)
+        return encryptedData.base64EncodedString()
+    }
+
+    static func decrypt(_ ciphertext: String) throws -> String {
+        guard let keyData = AES_KEY.data(using: .utf8),
+              let inputData = Data(base64Encoded: ciphertext) else {
+            throw CryptoError.decryptionFailed
+        }
+        let bufferSize: Int = inputData.count + kCCBlockSizeAES128
+        var buffer = [UInt8](repeating: 0, count: bufferSize)
+        var numBytesDecrypted: Int = 0
+
+        let cryptStatus = keyData.withUnsafeBytes { keyBytes in
+            inputData.withUnsafeBytes { dataBytes in
+                CCCrypt(
+                    CCOperation(kCCDecrypt),
+                    CCAlgorithm(kCCAlgorithmAES),
+                    CCOptions(kCCOptionPKCS7Padding),
+                    keyBytes.baseAddress, keyData.count,
+                    nil,
+                    dataBytes.baseAddress, inputData.count,
+                    &buffer,
+                    bufferSize,
+                    &numBytesDecrypted
+                )
+            }
+        }
+
+        guard cryptStatus == kCCSuccess else {
+            throw CryptoError.decryptionFailed
+        }
+
+        let decryptedData = Data(bytes: buffer, count: numBytesDecrypted)
+        return String(data: decryptedData, encoding: .utf8)!
+    }
+}
