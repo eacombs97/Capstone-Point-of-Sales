@@ -20,4 +20,9 @@ class CartManager: ObservableObject { //use ObservableObject so changes are upda
         products = products.filter { $0.id != product.id } //check if this is id
         total -= product.price
     }
+    
+    func clearCart() {
+            products.removeAll()
+            total = 0.00
+        }
 }

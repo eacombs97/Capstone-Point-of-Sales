@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A10367082BDAC17100C3233F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10367072BDAC17100C3233F /* NetworkService.swift */; };
-		A103670A2BDAF44000C3233F /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10367092BDAF43F00C3233F /* TitleBar.swift */; };
 		A103670C2BDAF50300C3233F /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103670B2BDAF50300C3233F /* AccountButton.swift */; };
 		A103670E2BDAFB3700C3233F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103670D2BDAFB3700C3233F /* AccountView.swift */; };
-		A10367102BDB11B200C3233F /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103670F2BDB11B200C3233F /* SwiftUIView.swift */; };
 		A1436E9D2BD1B8320013CA21 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1436E9C2BD1B8320013CA21 /* ProductRow.swift */; };
 		A1436E9F2BD1C2EC0013CA21 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1436E9E2BD1C2EB0013CA21 /* LoginView.swift */; };
 		A1436EA12BD1CCB00013CA21 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1436EA02BD1CCB00013CA21 /* LoginButton.swift */; };
@@ -19,6 +17,11 @@
 		A151A9062BC8998900045A84 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A151A9052BC8998900045A84 /* CartButton.swift */; };
 		A151A9082BC8A03700045A84 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A151A9072BC8A03700045A84 /* CartView.swift */; };
 		A151A90C2BD0D99C00045A84 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A151A90B2BD0D99C00045A84 /* CartManager.swift */; };
+		A17C3DD42BDF670700DAC7C5 /* PlaceOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C3DD32BDF670700DAC7C5 /* PlaceOrderView.swift */; };
+		A17C3DD62BDF677E00DAC7C5 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C3DD52BDF677E00DAC7C5 /* OrderModel.swift */; };
+		A17C3DD92BDF762200DAC7C5 /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C3DD82BDF762200DAC7C5 /* OrderConfirmationView.swift */; };
+		A17C3DDB2BDF7A1A00DAC7C5 /* Order Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C3DDA2BDF7A1A00DAC7C5 /* Order Manager.swift */; };
+		A1B4B0302BDF94AB00376119 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B4B02F2BDF94AB00376119 /* OrderDetailsView.swift */; };
 		A1F089752BBF4669003C6703 /* BitBuggyShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F089742BBF4669003C6703 /* BitBuggyShopApp.swift */; };
 		A1F089772BBF4669003C6703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F089762BBF4669003C6703 /* ContentView.swift */; };
 		A1F089792BBF466B003C6703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F089782BBF466B003C6703 /* Assets.xcassets */; };
@@ -29,10 +32,8 @@
 
 /* Begin PBXFileReference section */
 		A10367072BDAC17100C3233F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		A10367092BDAF43F00C3233F /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		A103670B2BDAF50300C3233F /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		A103670D2BDAFB3700C3233F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		A103670F2BDB11B200C3233F /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		A1436E9C2BD1B8320013CA21 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		A1436E9E2BD1C2EB0013CA21 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A1436EA02BD1CCB00013CA21 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
@@ -40,6 +41,11 @@
 		A151A9052BC8998900045A84 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		A151A9072BC8A03700045A84 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		A151A90B2BD0D99C00045A84 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		A17C3DD32BDF670700DAC7C5 /* PlaceOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderView.swift; sourceTree = "<group>"; };
+		A17C3DD52BDF677E00DAC7C5 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		A17C3DD82BDF762200DAC7C5 /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
+		A17C3DDA2BDF7A1A00DAC7C5 /* Order Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order Manager.swift"; sourceTree = "<group>"; };
+		A1B4B02F2BDF94AB00376119 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		A1F089712BBF4669003C6703 /* BitBuggyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBuggyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F089742BBF4669003C6703 /* BitBuggyShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitBuggyShopApp.swift; sourceTree = "<group>"; };
 		A1F089762BBF4669003C6703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				A151A9072BC8A03700045A84 /* CartView.swift */,
 				A1436E9E2BD1C2EB0013CA21 /* LoginView.swift */,
 				A103670D2BDAFB3700C3233F /* AccountView.swift */,
+				A17C3DD32BDF670700DAC7C5 /* PlaceOrderView.swift */,
+				A17C3DD82BDF762200DAC7C5 /* OrderConfirmationView.swift */,
+				A1B4B02F2BDF94AB00376119 /* OrderDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +114,7 @@
 				A1F089782BBF466B003C6703 /* Assets.xcassets */,
 				A1F0897A2BBF466B003C6703 /* Preview Content */,
 				A151A90B2BD0D99C00045A84 /* CartManager.swift */,
+				A17C3DDA2BDF7A1A00DAC7C5 /* Order Manager.swift */,
 				A1436EA22BD1D2200013CA21 /* AccountManager.swift */,
 				A10367062BDAC15B00C3233F /* Networking Code */,
 			);
@@ -123,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F089832BBF4D0A003C6703 /* Product.swift */,
+				A17C3DD52BDF677E00DAC7C5 /* OrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,9 +145,7 @@
 				A151A9052BC8998900045A84 /* CartButton.swift */,
 				A1436E9C2BD1B8320013CA21 /* ProductRow.swift */,
 				A1436EA02BD1CCB00013CA21 /* LoginButton.swift */,
-				A10367092BDAF43F00C3233F /* TitleBar.swift */,
 				A103670B2BDAF50300C3233F /* AccountButton.swift */,
-				A103670F2BDB11B200C3233F /* SwiftUIView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -169,7 +178,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					A1F089702BBF4669003C6703 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -211,21 +220,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17C3DD62BDF677E00DAC7C5 /* OrderModel.swift in Sources */,
 				A151A9082BC8A03700045A84 /* CartView.swift in Sources */,
 				A1436EA32BD1D2200013CA21 /* AccountManager.swift in Sources */,
-				A10367102BDB11B200C3233F /* SwiftUIView.swift in Sources */,
 				A1F089772BBF4669003C6703 /* ContentView.swift in Sources */,
 				A103670E2BDAFB3700C3233F /* AccountView.swift in Sources */,
 				A151A90C2BD0D99C00045A84 /* CartManager.swift in Sources */,
 				A1436E9F2BD1C2EC0013CA21 /* LoginView.swift in Sources */,
 				A1F089752BBF4669003C6703 /* BitBuggyShopApp.swift in Sources */,
+				A17C3DDB2BDF7A1A00DAC7C5 /* Order Manager.swift in Sources */,
 				A1436EA12BD1CCB00013CA21 /* LoginButton.swift in Sources */,
+				A1B4B0302BDF94AB00376119 /* OrderDetailsView.swift in Sources */,
 				A1436E9D2BD1B8320013CA21 /* ProductRow.swift in Sources */,
 				A1F089842BBF4D0A003C6703 /* Product.swift in Sources */,
-				A103670A2BDAF44000C3233F /* TitleBar.swift in Sources */,
+				A17C3DD42BDF670700DAC7C5 /* PlaceOrderView.swift in Sources */,
 				A103670C2BDAF50300C3233F /* AccountButton.swift in Sources */,
 				A1F0898D2BC4E838003C6703 /* ProductCard.swift in Sources */,
 				A10367082BDAC17100C3233F /* NetworkService.swift in Sources */,
+				A17C3DD92BDF762200DAC7C5 /* OrderConfirmationView.swift in Sources */,
 				A151A9062BC8998900045A84 /* CartButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +281,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -329,6 +342,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

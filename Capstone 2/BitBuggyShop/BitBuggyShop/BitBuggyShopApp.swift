@@ -2,7 +2,7 @@
 //  BitBuggyShopApp.swift
 //  BitBuggyShop
 //
-//  Created by Emily Combs on 4/4/24.
+//  Created by Emily Combs
 //
 
 import SwiftUI
@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct BitBuggyShopApp: App {
     @StateObject var cartManager = CartManager()
+    @State var orderManager = OrderManager()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()// Provide CartManager to ContentView
+            ContentView()
+            
         }
     }
 }

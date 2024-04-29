@@ -21,7 +21,7 @@ struct CartButton: View {
                     .font(.caption2).bold()
                     .foregroundColor(.white)
                     .frame(width: 15, height: 15)
-                    .background(Color(.red))
+                    .background(Color.red)
                     .cornerRadius(50)
             }
         }
