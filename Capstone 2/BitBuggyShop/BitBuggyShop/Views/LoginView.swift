@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct LoginView: View {
     @EnvironmentObject var cartManager : CartManager
@@ -18,6 +19,7 @@ struct LoginView: View {
     @State private var alertTitle: String = ""
     @State private var alertMessage: String = ""
     @State private var isNavigationActive = false
+    let accountManager = AccountManager.shared
     
     var body: some View {
         VStack {
@@ -122,16 +124,19 @@ struct LoginView: View {
     func authenticate() {
             // Regular expressions for email and password validation
             let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$" // At least 8 characters, one letter, and one digit
-            if username.isEmpty && password.isEmpty {
-                alertMessage = "You must enter an email and password."
+            let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$" // At least 8 characters, one capital letter, one digit, and one special character
+            
+            if username.isEmpty || password.isEmpty {
+                alertTitle = "Error"
+                alertMessage = "You must enter both username and password."
                 showAlert = true
                 return
             }
+            
             // Check if the username (email) matches the email regex
-            guard let emailRange = username.range(of: emailRegex, options: .regularExpression) else {
+            guard username.range(of: emailRegex, options: .regularExpression) != nil else {
                 alertTitle = "Error"
-                alertMessage = "Invalid email format. Please enter a valid email address."
+                alertMessage = "Invalid email. \nPlease re-enter your email."
                 showAlert = true
                 return
             }
@@ -139,45 +144,24 @@ struct LoginView: View {
             // Check if the password matches the password regex
             guard password.range(of: passwordRegex, options: .regularExpression) != nil else {
                 alertTitle = "Error"
-                alertMessage = "Invalid password format. Please enter a valid password"
+                alertMessage = "Invalid password. \nPlease re-enter your password."
                 showAlert = true
                 return
             }
             
-            // Authentication check passed
-            if validEmails.contains(username) && validPasswords.contains(password){
-                    isLoggedIn = true
-                    alertTitle = "Success"
-                    alertMessage = "You are logged in!"
-                    showAlert = true
-            } else if !validEmails.contains(username){
-                    alertTitle = "Error"
-                    alertMessage = "This email is not in our records. Please enter a valid email."
-                    showAlert = true
-            } else if !validPasswords.contains(password) {
+            // Authentication check using AccountManager
+            if accountManager.login(username: username, password: password) {
+                isLoggedIn = true
+                alertTitle = "Success"
+                alertMessage = "You are logged in!"
+                showAlert = true
+            } else {
                 alertTitle = "Error"
-                alertMessage = "This password is not valid. Please enter your password."
+                alertMessage = "Invalid username or password. Please try again."
                 showAlert = true
             }
         }
-        
-        let validEmails = [
-            "irelands3139@gmail.com",
-            "combse3146@gmail.com",
-            "gainesk0220@gmail.com"
-        ]
-        
-        let validPasswords = [
-            "Newuser123",
-            "Olduser123",
-            "Strangeuser123"
-        ]
-    
-    func didTapButton() {
-        print("DEBUG PRINT:", "Button Pressed")
     }
-
-}
 
 
 struct LoginView_Previews: PreviewProvider {

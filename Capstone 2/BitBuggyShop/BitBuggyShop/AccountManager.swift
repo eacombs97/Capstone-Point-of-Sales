@@ -42,6 +42,11 @@ class AccountManager: ObservableObject {
         
     
     init() {
+        // Method called to populate the users array
+        register(username: "gainesk0220@forsythtech.edu", password: "Newuser123!")
+        register(username: "combse3146@forsythtech.edu", password: "Olduser123!")
+        register(username: "irelands3139@forsythtech.edu", password: "Strangeuser123!")
+        
         objectWillChangeCancellable = objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }
