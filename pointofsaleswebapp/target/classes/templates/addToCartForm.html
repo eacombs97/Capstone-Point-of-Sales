@@ -1,0 +1,42 @@
+
+
+<!-- Add to Cart form -->
+<form id="addToCartForm" th:action="@{/cart/add}" method="post">
+   
+    <input type="hidden" id="productId" name="productId" th:value="${productId}">
+    
+    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+    <br><br>
+    <!-- Add to Cart button -->
+    <button type="button" id="addToCartButton">Add to Cart</button>
+</form>
+
+<!-- JavaScript code -->
+<script th:inline="javascript">
+    // Add event listener to the Add to Cart button
+    document.getElementById('addToCartButton').addEventListener('click', function() {
+        // Get product ID and quantity
+        var productId = document.getElementById('productId').value;
+        var quantity = document.getElementById('quantity').value;
+
+        // Create form data with product ID and quantity
+        var formData = new FormData();
+        formData.append('productId', productId);
+        formData.append('quantity', quantity);
+
+        // Send AJAX request to add product to cart
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', /*[[${#httpServletRequest.getRequestURI()}]]*/);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Item added to cart successfully!');
+                // Optionally, update UI to reflect changes
+            } else {
+                alert('Error adding item to cart: ' + xhr.statusText);
+                // Optionally, handle error scenario
+            }
+        };
+        xhr.send(formData);
+    });
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #38785e;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            width: 30%;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Products</h1>
+        <div class="product-container">
+            <!-- Iterate over products and create buttons -->
+            <div th:each="product : ${products}" class="product">
+                <h3 th:text="${product.name}"></h3>
+                <p th:text="${product.price}"></p>
+                <form th:action="@{/cart/add}" method="post">
+                    <!-- Hidden input field to send the product ID with the form -->
+                    <input type="hidden" name="productId" th:value="${product.id}">
+                    <input type="number" name="quantity" class="quantity-input form-control" value="1" min="1">
+                    <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Cart Button -->
+    <div class="container mt-4 text-center">
+        <a th:href="@{/cart}" class="btn btn-success">View Cart</a>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles here if needed */
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Cart</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over each order item in the cart -->
+                <tr th:each="item : ${cartItems}">
+                    <td th:text="${item.product.name}"></td>
+                    <td th:text="${item.quantity}"></td>
+                    <td th:text="${item.product.price * item.quantity}"></td>
+                    <!-- Add more columns as needed -->
+                              <!-- Button to remove item -->
+                              <td>
+                                <!-- Form for removing item -->
+                                <form th:action="@{/cart/remove}" method="post">
+                                    <!-- Hidden input for productId -->
+                                    <input type="hidden" name="productId" th:value="${item.product.id}">
+                                    <!-- Submit button to remove item -->
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Display the current total -->
+        <div>Total: <span th:text="${totalPrice}"></span></div>
+        
+        <!-- Link to the add to cart page -->
+        <a href="/cart/add" class="btn btn-primary mt-3">Add more items</a>
+        <a href="/checkout" class="btn btn-primary mt-3">Checkout</a>
+    </div>
+        <!-- Checkout button -->
+        
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

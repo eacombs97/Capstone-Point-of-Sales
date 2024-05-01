@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for error page */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .error-message {
+            margin-top: 50px;
+            font-size: 24px;
+            color: red;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <!-- Error message -->
+                <div class="error-message text-center">
+                    <p>Sorry, an error occurred.</p>
+                </div>
+                <!-- Button to go back to the cart -->
+                <div class="button-container text-center">
+                    <a th:href="@{/cart/view}" class="btn btn-primary">Back to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
